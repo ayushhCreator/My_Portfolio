@@ -38,7 +38,7 @@ const Hero: React.FC = () => {
     <div className="absolute inset-0 bg-gradient-to-br from-teal-500 to-blue-600 opacity-90"></div>
     <div className="absolute inset-0 flex items-center justify-center">
       <img
-        src="https://drive.google.com/file/d/1t3pAcg5E0pSH3SvLzcsqRbvgj-LHxG5R/view?usp=sharing"
+        src="/assets/newpic.jpeg"
         alt="Ayush Raj"
         className="w-full h-full object-inherit"
       />
