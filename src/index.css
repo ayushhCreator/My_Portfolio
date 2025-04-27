@@ -14,6 +14,11 @@ body {
   text-teal-600 {
     --tw-text-opacity: 1 !important;
     color: rgba (148, 119, 238, 1) / var(--tw-text-opacity) !important;
+  }
+  @media (min-width: 640px) {
+    .sm\:w-80 {
+        width: 14rem !important;
+    }
 }
 }
 @layer utilities {
