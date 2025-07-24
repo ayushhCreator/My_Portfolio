@@ -1,38 +1,22 @@
 import React from 'react';
-import { BookOpen, Calendar, MapPin } from 'lucide-react';
+import { Calendar, MapPin } from 'lucide-react';
 
 const Education: React.FC = () => {
   const educationData = [
     {
-      degree: "Master of Computer Applications",
+      degree: "Master of Computer Applications (MCA)",
       institution: "New Horizon College of Engineering",
-      location: "Bengaluru",
-      period: "September 2023 – September 2025",
-      details: "Current CGPA: 7.75/10",
+      location: "Bengaluru, Karnataka",
+      period: "Dec 2023 – Aug 2025",
+      details: "CGPA: 7.75/10.0",
       courses: "Relevant Courses: Advanced Programming, Software Engineering, DBMS, Data Structures and Algorithms"
     },
     {
-      degree: "Bachelor of Computer Applications",
-      institution: "Lalit Narayan Mishra Institute Of Economic Development And Social Change",
+      degree: "Bachelor of Computer Applications (BCA)",
+      institution: "Lalit Narayan Mishra Institute",
       location: "Patna, Bihar",
-      period: "June 2020 – June 2023",
-      details: "CGPA: 8.27/10",
-      courses: ""
-    },
-    {
-      degree: "Intermediate (Class 12)",
-      institution: "College of Commerce, Arts and Science",
-      location: "Patna",
-      period: "March 2020",
-      details: "Percentage: 72.2%",
-      courses: ""
-    },
-    {
-      degree: "Matriculation (Class 10)",
-      institution: "Rosemary Land School",
-      location: "Bihar Sharif",
-      period: "June 2018",
-      details: "Percentage: 78.4%",
+      period: "Oct 2020 – Jul 2023",
+      details: "CGPA: 8.27/10.0 — Top 15% of graduating class",
       courses: ""
     }
   ];

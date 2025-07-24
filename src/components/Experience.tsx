@@ -4,16 +4,30 @@ import { Briefcase, Calendar } from 'lucide-react';
 const Experience: React.FC = () => {
   const experiences = [
     {
-      title: "Software Developer",
+      title: "Software Engineer Intern - Full-Stack Java Developer",
+      company: "Tripillar Solutions LLP",
+      location: "Bengaluru, India",
+      period: "October 2024 – December 2024",
+      responsibilities: [
+        "Engineered an HRMS web application for automated employee scheduling across 15 departments, reducing manual processing time by 8 hours weekly",
+        "Built a timetable management system with CRUD operations for schedules, subjects, and faculty assignments using Spring Boot and Spring Data JPA",
+        "Optimized database performance, reducing API response time by 62% through indexing and query improvements",
+        "Designed 12 secure RESTful APIs with 99.1% uptime, handling 50+ concurrent users",
+        "Implemented responsive frontend views using Thymeleaf, HTML, CSS, and Bootstrap following MVC architecture",
+        "Participated in Agile development processes and mentored junior developers on Git workflows"
+      ]
+    },
+    {
+      title: "Web Developer Intern",
       company: "Dot Plus Technologies Pvt. Ltd",
       location: "Bihar, India",
       period: "April 2023 – September 2023",
       responsibilities: [
-        "Developed web applications using HTML5, CSS3, JavaScript, and Bootstrap.",
-        "Contributed to frontend-backend integration for Saadwul e-commerce platform.",
-        "Built reusable code modules for RPS Law College website.",
-        "Used Git for version control and participated in code reviews.",
-        "Applied performance optimization techniques to improve responsiveness."
+        "Built 5+ responsive web applications serving 800+ monthly users, including saadwul.com and rpslawcollege.com",
+        "Increased mobile user engagement by 34% through a mobile-first design approach",
+        "Implemented Git workflows and code review processes, reducing merge conflicts by 43%",
+        "Crafted optimized HTML email templates with cross-browser compatibility",
+        "Applied performance optimization techniques to improve website responsiveness"
       ]
     }
   ];
