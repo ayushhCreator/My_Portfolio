@@ -22,39 +22,51 @@ const Education: React.FC = () => {
   ];
 
   return (
-    <section id="education" className="py-20 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-2">Education</h2>
-        <div className="w-20 h-1 bg-teal-600 mx-auto mb-12"></div>
+    <section id="education" className="py-20 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 relative overflow-hidden">
+      {/* Background Animation Elements */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-20 right-20 w-64 h-64 bg-gradient-to-br from-indigo-400 to-cyan-400 rounded-full mix-blend-multiply filter blur-xl animate-float"></div>
+        <div className="absolute bottom-20 left-20 w-48 h-48 bg-gradient-to-br from-cyan-400 to-indigo-400 rounded-full mix-blend-multiply filter blur-xl animate-float animation-delay-600"></div>
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-16 animate-fadeIn">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-600">Education</span>
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-cyan-600 mx-auto mb-6"></div>
+        </div>
         
         <div className="max-w-4xl mx-auto">
-          <div className="relative pl-8 sm:pl-32 py-6 group">
-            <div className="absolute left-0 sm:left-0 h-full w-2 bg-teal-600 group-hover:w-3 transition-all duration-300 ease-in-out"></div>
+          <div className="relative">
+            <div className="absolute left-3 md:left-6 h-full w-1 bg-gradient-to-b from-indigo-600 to-cyan-600 rounded-full"></div>
             
             <div className="space-y-8">
               {educationData.map((edu, index) => (
-                <div key={index} className="relative pl-8 sm:pl-32 mb-10 last:mb-0">
-                  <div className="absolute left-0 -ml-[9px] sm:-ml-[41px] top-0 w-4 h-4 sm:w-6 sm:h-6 rounded-full bg-white border-4 border-teal-600"></div>
+                <div key={index} className="relative pl-8 md:pl-16 animate-slideInRight" style={{ animationDelay: `${index * 300}ms` }}>
+                  <div className="absolute left-0 md:left-3 -ml-[7px] md:-ml-[10px] top-2 w-4 h-4 md:w-6 md:h-6 rounded-full bg-white border-2 md:border-4 border-indigo-600 shadow-lg animate-pulseGlow"></div>
                   
-                  <div className="bg-white rounded-lg shadow-md p-6 transition-all hover:shadow-lg">
-                    <h3 className="text-xl font-bold text-gray-800 mb-1">{edu.degree}</h3>
-                    <h4 className="text-lg text-gray-700 mb-2">{edu.institution}</h4>
+                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-4 md:p-6 lg:p-8 transition-all hover:shadow-2xl hover-lift border border-gray-100">
+                    <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-800 mb-2 hover:text-indigo-600 transition-colors duration-300 leading-tight">{edu.degree}</h3>
+                    <h4 className="text-base md:text-lg lg:text-xl text-indigo-600 mb-4 font-semibold">{edu.institution}</h4>
                     
-                    <div className="flex flex-wrap items-center text-gray-600 mb-3">
-                      <div className="flex items-center mr-6 mb-1 sm:mb-0">
-                        <MapPin size={16} className="mr-1" />
-                        <span>{edu.location}</span>
+                    <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center text-gray-600 mb-4 gap-2 sm:gap-4">
+                      <div className="flex items-center">
+                        <MapPin size={16} className="mr-2 text-cyan-600 flex-shrink-0" />
+                        <span className="font-medium text-sm md:text-base">{edu.location}</span>
                       </div>
                       <div className="flex items-center">
-                        <Calendar size={16} className="mr-1" />
-                        <span>{edu.period}</span>
+                        <Calendar size={16} className="mr-2 text-indigo-600 flex-shrink-0" />
+                        <span className="font-medium text-sm md:text-base">{edu.period}</span>
                       </div>
                     </div>
                     
-                    <p className="text-gray-700 font-medium">{edu.details}</p>
-                    {edu.courses && (
-                      <p className="text-gray-700 mt-2">{edu.courses}</p>
-                    )}
+                    <div className="bg-gradient-to-r from-indigo-50 to-cyan-50 p-3 md:p-4 rounded-lg border-l-4 border-indigo-500">
+                      <p className="text-gray-800 font-semibold text-base md:text-lg">{edu.details}</p>
+                      {edu.courses && (
+                        <p className="text-gray-700 mt-2 italic text-sm md:text-base text-justify">{edu.courses}</p>
+                      )}
+                    </div>
                   </div>
                 </div>
               ))}

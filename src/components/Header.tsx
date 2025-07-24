@@ -28,53 +28,43 @@ const Header: React.FC = () => {
   ];
 
   const socialLinks = [
-    { icon: <Github size={20} />, href: 'https://github.com/ayushhCreator' },
-    { icon: <Linkedin size={20} />, href: 'https://linkedin.com/in/ayush-raj-633526186' },
-    { icon: <Instagram size={20} />, href: 'https://www.instagram.com/ayushh_74' },
-    { icon: <Facebook size={20} />, href: 'https://www.facebook.com/ayushh74' },
+    { icon: <Github size={20} />, href: 'https://github.com/ayushhCreator', color: 'hover:text-gray-700' },
+    { icon: <Linkedin size={20} />, href: 'https://linkedin.com/in/ayush-raj-633526186', color: 'hover:text-blue-600' },
+    { icon: <Instagram size={20} />, href: 'https://www.instagram.com/ayushh_74', color: 'hover:text-pink-500' },
+    { icon: <Facebook size={20} />, href: 'https://www.facebook.com/ayushh74', color: 'hover:text-blue-700' },
   ];
 
   return (
     <header 
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-4'
+        isScrolled 
+          ? 'bg-white/95 backdrop-blur-md shadow-lg py-2 md:py-3 border-b border-gray-100' 
+          : 'bg-transparent py-3 md:py-4'
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          <a href="#" className="text-xl font-bold text-teal-600">Ayush Raj</a>
+          <a href="#" className="text-lg md:text-xl font-bold bg-gradient-to-r from-indigo-600 to-cyan-600 bg-clip-text text-transparent hover:from-indigo-700 hover:to-cyan-700 transition-all duration-300">
+            Ayush Raj
+          </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {sections.map((section) => (
               <a 
                 key={section.name}
                 href={section.href}
-                className="text-gray-700 hover:text-teal-600 transition-colors font-medium"
+                className="text-gray-700 hover:text-indigo-600 transition-all duration-300 font-medium relative group text-sm lg:text-base"
               >
                 {section.name}
+                <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-indigo-600 to-cyan-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
               </a>
             ))}
           </nav>
 
-          {/* Social Links - Desktop
-          <div className="hidden md:flex items-center space-x-4">
-            {socialLinks.map((link, index) => (
-              <a 
-                key={index}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-teal-600 transition-colors"
-              >
-                {link.icon}
-              </a>
-            ))}
-          </div> */}
-
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden text-gray-600 focus:outline-none"
+            className="md:hidden text-gray-600 hover:text-indigo-600 focus:outline-none transition-colors duration-300 p-2"
             onClick={toggleMenu}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -83,13 +73,13 @@ const Header: React.FC = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 py-4 bg-white rounded-lg shadow-lg">
-            <div className="flex flex-col space-y-3 px-4">
+          <div className="md:hidden mt-4 py-6 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-gray-100 animate-fadeIn">
+            <div className="flex flex-col space-y-4 px-6">
               {sections.map((section) => (
                 <a 
                   key={section.name}
                   href={section.href}
-                  className="text-gray-700 hover:text-teal-600 py-2 transition-colors font-medium"
+                  className="text-gray-700 hover:text-indigo-600 py-3 transition-all duration-300 font-medium border-b border-gray-100 last:border-b-0 hover:pl-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {section.name}
@@ -97,14 +87,14 @@ const Header: React.FC = () => {
               ))}
             </div>
             
-            <div className="flex justify-center space-x-6 mt-6 pt-4 border-t border-gray-100">
+            <div className="flex justify-center space-x-6 mt-6 pt-6 border-t border-gray-200">
               {socialLinks.map((link, index) => (
                 <a 
                   key={index}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-teal-600 transition-colors"
+                  className={`text-gray-600 ${link.color} transition-all duration-300 hover:scale-110`}
                 >
                   {link.icon}
                 </a>

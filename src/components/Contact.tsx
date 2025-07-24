@@ -64,10 +64,20 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-2">Contact Me</h2>
-        <div className="w-20 h-1 bg-teal-600 mx-auto mb-12"></div>
+    <section id="contact" className="py-20 bg-gradient-to-br from-gray-50 to-indigo-50 relative overflow-hidden">
+      {/* Background Animation Elements */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-br from-indigo-400 to-cyan-400 rounded-full mix-blend-multiply filter blur-xl animate-float"></div>
+        <div className="absolute bottom-20 right-20 w-48 h-48 bg-gradient-to-br from-cyan-400 to-indigo-400 rounded-full mix-blend-multiply filter blur-xl animate-float animation-delay-600"></div>
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-16 animate-fadeIn">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+            Contact <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-600">Me</span>
+          </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-cyan-600 mx-auto mb-6"></div>
+        </div>
         
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -98,71 +108,76 @@ const Contact: React.FC = () => {
             </div> */}
             
             <div className="lg:col-span-3">
-              <div className="bg-white rounded-lg shadow-md p-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-6">Send Me a Message</h3>
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl p-8 transition-all duration-500 hover-lift border border-gray-100 animate-scaleIn">
+                <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
+                  Send Me a <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-600">Message</span>
+                </h3>
                 
                 <form action="https://formspree.io/f/mayrqpnd"
   method="POST" >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-                    <div>
-                      <label htmlFor="name" className="block text-gray-700 font-medium mb-2">Your Name</label>
+                    <div className="animate-fadeIn animation-delay-300">
+                      <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">Your Name</label>
                       <input
                         type="text"
                         id="name"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-600 focus:border-transparent transition-colors"
+                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300 hover:border-gray-300"
                         required
                       />
                     </div>
                     
-                    <div>
-                      <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Your Email</label>
+                    <div className="animate-fadeIn animation-delay-600">
+                      <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">Your Email</label>
                       <input
                         type="email"
                         id="email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-600 focus:border-transparent transition-colors"
+                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300 hover:border-gray-300"
                         required
                       />
                     </div>
                   </div>
                   
-                  <div className="mb-6">
-                    <label htmlFor="subject" className="block text-gray-700 font-medium mb-2">Subject</label>
+                  <div className="mb-6 animate-fadeIn animation-delay-900">
+                    <label htmlFor="subject" className="block text-gray-700 font-semibold mb-2">Subject</label>
                     <input
                       type="text"
                       id="subject"
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-600 focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300 hover:border-gray-300"
                       required
                     />
                   </div>
                   
-                  <div className="mb-6">
-                    <label htmlFor="message" className="block text-gray-700 font-medium mb-2">Message</label>
+                  <div className="mb-8 animate-fadeIn animation-delay-1200">
+                    <label htmlFor="message" className="block text-gray-700 font-semibold mb-2">Message</label>
                     <textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       rows={5}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-600 focus:border-transparent transition-colors resize-none"
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300 resize-none hover:border-gray-300"
                       required
                     ></textarea>
                   </div>
                   
-                  <button
-                    type="submit"
-                    className="px-6 py-3 bg-teal-600 text-white font-medium rounded-lg hover:bg-teal-700 transition-colors duration-300 shadow flex items-center"
-                  >
-                    Send Message <Send size={16} className="ml-2" />
-                  </button>
+                  <div className="text-center animate-fadeIn animation-delay-1200">
+                    <button
+                      type="submit"
+                      className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-cyan-600 text-white font-semibold rounded-full hover:from-indigo-700 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center mx-auto group animate-pulseGlow"
+                    >
+                      Send Message 
+                      <Send size={18} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                    </button>
+                  </div>
                 </form>
               </div>
             </div>
