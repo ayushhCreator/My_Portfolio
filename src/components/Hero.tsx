@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Github, Linkedin, Twitter, Mail } from 'lucide-react';
+import profileImage from '../assets/newpic.jpeg';
 
 const Hero: React.FC = () => {
   const [displayedText, setDisplayedText] = useState('');
@@ -126,12 +127,12 @@ const Hero: React.FC = () => {
               {/* Profile Image */}
               <div className="relative z-10 w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 sm:border-6 lg:border-8 border-white shadow-2xl animate-float">
                 <img 
-                  src="/assets/newpic.jpeg" 
+                  src={profileImage} 
                   alt="Ayush Raj - Full-Stack Software Engineer" 
                   className="w-full h-full object-cover object-center"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
-                    target.src = "/assets/newpic.jpeg";
+                    target.src = profileImage;
                   }}
                 />
               </div>
