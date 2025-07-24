@@ -6,6 +6,23 @@ const Projects: React.FC = () => {
   
   const projects = [
     {
+      title: "WorkNest - Real-time Kanban Project Management Tool",
+      date: "July 2024",
+      description: "Comprehensive full-stack project management application built with the MERN stack, featuring real-time collaboration, Kanban boards, team management capabilities, and enterprise-level features for modern teams.",
+      details: [
+        "Built full-stack application using MERN stack (MongoDB, Express.js, React, Node.js)",
+        "Implemented real-time collaboration with Socket.io for instant updates",
+        "Created drag-and-drop Kanban boards with React Beautiful DnD",
+        "Developed JWT-based authentication with bcrypt password hashing",
+        "Integrated role-based permissions system (Owner/Admin/Member/Viewer)",
+        "Built email invitation system with secure tokens using Nodemailer",
+        "Implemented file upload functionality with Cloudinary integration",
+        "Created analytics dashboard with Chart.js for project insights"
+      ],
+      technologies: ["React", "TypeScript", "Node.js", "MongoDB", "Express.js", "Socket.io", "Tailwind CSS", "JWT", "Cloudinary"],
+      link: "https://github.com/ayushhCreator/WorkNest"
+    },
+    {
       title: "HRMS-Integrated Timetable Management System",
       date: "November 2024",
       description: "Advanced academic scheduling system integrating complex timetable management with human resource management functions.",
