@@ -24,7 +24,7 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-gray-50 to-indigo-50 relative overflow-hidden">
+    <section id="about" className="py-16 bg-gradient-to-br from-gray-50 to-indigo-50 relative overflow-hidden">
       {/* Background Animation Elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 right-20 w-64 h-64 bg-gradient-to-br from-indigo-400 to-cyan-400 rounded-full mix-blend-multiply filter blur-xl animate-float"></div>
@@ -40,9 +40,9 @@ const About: React.FC = () => {
             <div className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-cyan-600 mx-auto mb-6"></div>
           </div>
           
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 md:p-12 hover-lift animate-scaleIn animation-delay-300">
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 md:p-8 lg:p-12 hover-lift animate-scaleIn animation-delay-300">
             <div className="animate-fadeIn animation-delay-600">
-              <p className="text-gray-700 mb-8 leading-relaxed text-justify text-lg">
+              <p className="text-gray-700 mb-8 leading-relaxed text-justify text-base md:text-lg px-2 md:px-0">
                 Full-Stack Software Engineer with 8+ months of experience in building web applications using MERN stack and Spring
                 Boot. Skilled in developing scalable systems, optimizing database performance, and working in Agile environments.
                 Passionate about writing clean code and solving complex problems. Demonstrated expertise in creating real-time collaborative
@@ -52,40 +52,40 @@ const About: React.FC = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 animate-fadeIn animation-delay-900">
               <div className="flex items-start group">
-                <div className="bg-gradient-to-br from-indigo-100 to-cyan-100 p-3 rounded-full mr-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="bg-gradient-to-br from-indigo-100 to-cyan-100 p-3 rounded-full mr-4 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
                   <User className="text-indigo-600" size={20} />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <h3 className="font-semibold text-gray-900 mb-1">Name</h3>
                   <p className="text-gray-700">Ayush Raj</p>
                 </div>
               </div>
               
               <div className="flex items-start group">
-                <div className="bg-gradient-to-br from-indigo-100 to-cyan-100 p-3 rounded-full mr-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="bg-gradient-to-br from-indigo-100 to-cyan-100 p-3 rounded-full mr-4 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
                   <Phone className="text-indigo-600" size={20} />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
-                  <p className="text-gray-700">+91 7464026177, +91 8073342967</p>
+                  <p className="text-gray-700 break-words">+91 7464026177, +91 8073342967</p>
                 </div>
               </div>
               
               <div className="flex items-start group">
-                <div className="bg-gradient-to-br from-indigo-100 to-cyan-100 p-3 rounded-full mr-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="bg-gradient-to-br from-indigo-100 to-cyan-100 p-3 rounded-full mr-4 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
                   <Mail className="text-indigo-600" size={20} />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-                  <p className="text-gray-700">ayushraj1501003@gmail.com</p>
+                  <p className="text-gray-700 break-words">ayushraj1501003@gmail.com</p>
                 </div>
               </div>
               
               <div className="flex items-start group">
-                <div className="bg-gradient-to-br from-indigo-100 to-cyan-100 p-3 rounded-full mr-4 group-hover:scale-110 transition-transform duration-300">
+                <div className="bg-gradient-to-br from-indigo-100 to-cyan-100 p-3 rounded-full mr-4 group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
                   <MapPin className="text-indigo-600" size={20} />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <h3 className="font-semibold text-gray-900 mb-1">Location</h3>
                   <p className="text-gray-700">Bengaluru, Karnataka, India</p>
                 </div>
@@ -93,7 +93,7 @@ const About: React.FC = () => {
             </div>
 
             {/* Social Links */}
-            <div className="flex flex-wrap gap-4 mb-8 animate-fadeIn animation-delay-1200">
+            <div className="flex flex-wrap gap-3 md:gap-4 mb-8 animate-fadeIn animation-delay-1200">
               <p className="w-full text-gray-700 font-semibold mb-2">Connect with me:</p>
               {socialLinks.map((link, index) => (
                 <a
@@ -101,19 +101,19 @@ const About: React.FC = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`social-icon flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-full transition-all duration-300 ${link.color} hover-lift`}
+                  className={`social-icon flex items-center gap-2 px-3 md:px-4 py-2 bg-gray-100 text-gray-700 rounded-full transition-all duration-300 ${link.color} hover-lift text-sm`}
                   aria-label={link.label}
                 >
                   {link.icon}
-                  <span className="text-sm font-medium">{link.label}</span>
+                  <span className="font-medium">{link.label}</span>
                 </a>
               ))}
             </div>
             
-            <div className="animate-fadeIn animation-delay-1200">
+            <div className="animate-fadeIn animation-delay-1200 text-center md:text-left">
               <a 
                 href="#contact" 
-                className="inline-block px-8 py-4 bg-gradient-to-r from-indigo-600 to-cyan-600 text-white font-semibold rounded-full hover:from-indigo-700 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 animate-pulseGlow"
+                className="inline-block px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-indigo-600 to-cyan-600 text-white font-semibold rounded-full hover:from-indigo-700 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 animate-pulseGlow"
               >
                 Contact Me
               </a>

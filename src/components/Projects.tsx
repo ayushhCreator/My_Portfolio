@@ -35,7 +35,7 @@ const Projects: React.FC = () => {
         "Implemented geolocation features for efficient food distribution routing"
       ],
       technologies: ["PHP", "MySQL", "JavaScript", "HTML5", "CSS3", "Bootstrap"],
-      link: "#"
+      link: "https://github.com/ayushhCreator/food-waste-management-system"
     },
     {
       title: "HRMS-Integrated Timetable Management System",
@@ -46,8 +46,8 @@ const Projects: React.FC = () => {
         "Created RESTful APIs and database models using MySQL.",
         "Designed scalable architecture using Object-Oriented Design."
       ],
-      technologies: ["Java", "Spring Boot", "MySQL", "RESTful APIs", "OOD"],
-      link: "#"
+      technologies: ["Java", "Spring Boot", "MySQL", "RESTful APIs"],
+      link: "https://github.com/ayushhCreator/HRMS-MU"
     },
     {
       title: "Budget Hotels in Delhi (Online Hotel Reservation System)",
@@ -59,7 +59,7 @@ const Projects: React.FC = () => {
         "Implemented secure login and role-based access control."
       ],
       technologies: ["ASP.NET MVC", "C#", "MySQL", "Bootstrap", "JavaScript"],
-      link: "#"
+      link: "https://github.com/ayushhCreator/Budget_Hottels_in_Delhi"
     }
   ];
 
