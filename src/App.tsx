@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './components/Header';
+import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
@@ -11,8 +11,8 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Header />
+    <div className="min-h-screen bg-[#0a0a0a] text-white">
+      <Navbar />
       <main>
         <Hero />
         <About />
