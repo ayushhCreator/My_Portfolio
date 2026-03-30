@@ -3,9 +3,12 @@ export const personalInfo = {
   email: "ayushraj150103@gmail.com",
   phone: "+91 7464026177",
   location: "Patna, Bihar, India",
-  github: "https://github.com/ayushhCreator",
+  github: "Ayush-Raj",
+  githubUrl: "https://github.com/Ayush-Raj",
+  twitter: "ayushhCreator",
+  twitterUrl: "https://twitter.com/ayushhCreator",
   linkedin: "https://linkedin.com/in/ayush-raj-633526186/",
-  portfolio: "https://myportfolio15.vercel.app",
+  portfolio: "myportfolio15.vercel.app",
   tagline: "I build production-grade systems — APIs, real-time apps, and scalable backends that actually ship."
 };
 
@@ -22,60 +25,56 @@ export const stats = [
   { value: "92%", label: "Efficiency Improvement" }
 ];
 
-export const aboutText = `MCA graduate (2025) from New Horizon College of Engineering, Bengaluru. I've spent the last 2 years building real production systems — a full automotive services platform, HRMS tools, and real-time collaboration apps. I care about clean architecture, meaningful metrics, and code that actually works in production.`;
+export const aboutText = `MCA graduate and aspiring Full-Stack Developer with hands-on internship experience building production-grade systems in automotive services, HRMS, and real-time collaboration. Comfortable across the stack — REST APIs, RBAC, Docker deployments — using Python/Frappe, Spring Boot, and Node.js. Seeking a full-time role where I can contribute immediately and grow as a backend-focused engineer.`;
 
 export const skills = {
-  Languages: ["Python", "Java", "TypeScript", "JavaScript", "SQL"],
-  Frameworks: ["Frappe v15", "Spring Boot", "React 19", "Node.js", "Express.js"],
+  Languages: ["Python", "JavaScript (ES6+)", "TypeScript", "Java", "SQL"],
+  Frameworks: ["Frappe v15", "Node.js", "Express.js", "React 19", "Spring Boot", "ASP.NET MVC"],
   Databases: ["MariaDB", "MySQL", "MongoDB", "Redis"],
-  "DevOps & Tools": ["Docker", "Docker Compose", "GitHub Actions", "Git", "Postman", "Linux"],
-  "APIs & Auth": ["REST APIs", "JWT", "RBAC", "Google Calendar API"]
+  "DevOps & Tools": ["Docker", "Docker Compose", "GitHub Actions (CI/CD)", "Git", "Postman", "Ruff", "pre-commit"],
+  "APIs & Auth": ["REST APIs", "JWT Authentication", "RBAC", "Google Calendar API"]
 };
 
 export const experience = [
   {
-    role: "Software Developer",
-    company: "Yawlit",
-    date: "Mar 2026 – Present",
-    badge: "FULL-TIME",
-    badgeColor: "green",
-    bullets: [
-      "Promoted from intern after shipping the production automotive platform",
-      "Continuing architectural improvements and new feature development"
-    ]
-  },
-  {
     role: "Software Developer Intern",
+    title: "Software Developer Intern",
     company: "Yawlit",
+    duration: "Sep 2025 – Mar 2026",
     date: "Sep 2025 – Mar 2026",
     badge: "INTERNSHIP",
     badgeColor: "blue",
     bullets: [
-      "Architected a production automotive services platform on Frappe v15 (Python) — 3 portals (Admin, Customer, Vendor), 371 commits, 18 merged PRs",
-      "Built 5-step booking engine with real-time pricing, slot management, and Google Calendar sync",
-      "Containerized full stack with Docker + Docker Compose; authored GitHub Actions CI/CD with Ruff linting and gitleaks secret scanning",
-      "Resolved 7 critical navigation regressions by refactoring routing with React Context API"
+      "Architected and sole-engineered a production automotive services platform (Frappe v15 + Python) with three role-specific portals — Admin, Customer, and Vendor — across 371 commits and 18 merged PRs.",
+      "Built a 5-step booking engine with real-time pricing, coupon validation, slot management, and bidirectional Google Calendar sync.",
+      "Containerized the full stack using Docker and Docker Compose; authored GitHub Actions CI/CD pipeline with pre-commit hooks, Ruff linting, and gitleaks secret scanning.",
+      "Resolved 7 critical navigation regressions by refactoring routing with React Context API; embedded dual Vite/React micro-apps (customer + vendor portals) within Frappe backend."
     ]
   },
   {
     role: "Java Full Stack Developer Intern",
+    title: "Java Full Stack Developer Intern",
     company: "Tripillar Solutions LLP",
+    duration: "Oct 2024 – Dec 2024",
     date: "Oct 2024 – Dec 2024",
     badge: "INTERNSHIP",
     badgeColor: "blue",
     bullets: [
-      "Built HRMS-integrated timetable system (Java + Spring Boot + MySQL) — cut scheduling time from 6 hrs → 30 min/week (92% reduction)",
-      "Designed RESTful APIs with Spring Security RBAC, supporting 200+ concurrent users"
+      "Delivered HRMS-integrated timetable system using Spring Boot and MySQL, cutting weekly scheduling time from 6 hours to under 30 minutes (~92% reduction).",
+      "Designed RESTful APIs with Spring Security RBAC, supporting 200+ concurrent users; delivered a production-ready system within a 6-week deadline."
     ]
   },
   {
-    role: "Web Developer Intern",
-    company: "Dot Plus Technologies",
+    role: "Web Developer",
+    title: "Web Developer",
+    company: "Dot Plus Technologies Pvt. Ltd.",
+    duration: "Apr 2023 – Sep 2023",
     date: "Apr 2023 – Sep 2023",
-    badge: "INTERNSHIP",
+    badge: "ROLE",
     badgeColor: "blue",
     bullets: [
-      "Built 5+ client websites serving 500+ daily users; improved performance by 25% and mobile responsiveness by 40%"
+      "Built 5+ client-facing web applications (HTML5, CSS3, JavaScript, ASP.NET MVC) serving 500+ daily users.",
+      "Improved load performance by 25% and mobile responsiveness by 40%."
     ]
   }
 ];
@@ -94,14 +93,23 @@ export const projects = [
     featured: true
   },
   {
-    title: "WorkNest — Real-Time Kanban Platform",
+    title: "WorkNest",
+    subtitle: "Real-Time Kanban Collaboration Platform",
+    type: "Full-Stack",
     badge: "LIVE",
     badgeColor: "blue",
-    description: "Full-stack MERN project management platform with Socket.io-powered real-time Kanban boards, drag-and-drop tasks, and granular RBAC. Deployed on Vercel with 99% uptime.",
-    tech: ["React", "TypeScript", "Node.js", "MongoDB", "Socket.io", "Cloudinary"],
+    description: "Full-stack MERN project management platform with Socket.io-powered real-time Kanban boards, drag-and-drop task management, and live multi-user collaboration.",
+    highlights: [
+      "JWT authentication with granular RBAC (Admin / Member / Viewer)",
+      "Cloudinary file attachments and automated email onboarding — reduced team setup friction by ~40%",
+      "Event-driven WebSocket architecture in TypeScript supporting concurrent room-based sessions without polling",
+      "Deployed on Vercel with 99% uptime"
+    ],
+    stack: ["MongoDB", "Express.js", "React", "Node.js", "Socket.io", "TypeScript", "Cloudinary", "JWT"],
+    tech: ["MongoDB", "Express.js", "React", "Node.js", "Socket.io", "TypeScript", "Cloudinary", "JWT"],
     links: {
-      live: "https://work-nest-rho.vercel.app/login",
-      github: "https://github.com/ayushhCreator/WorkNest"
+      live: "https://worknestpro.vercel.app/dashboard",
+      github: "[ADD GITHUB URL]"
     },
     featured: false
   },
@@ -129,14 +137,16 @@ export const projects = [
 
 export const education = [
   {
-    degree: "MCA",
+    degree: "Master of Computer Applications (MCA)",
     institution: "New Horizon College of Engineering, Bengaluru",
+    duration: "Dec 2023 – Aug 2025",
     cgpa: "7.97",
     period: "Dec 2023 – Aug 2025"
   },
   {
-    degree: "BCA",
+    degree: "Bachelor of Computer Applications (BCA)",
     institution: "L.N. Mishra Institute, Patna",
+    duration: "Oct 2020 – Jul 2023",
     cgpa: "8.27",
     note: "Top 15%",
     period: "Oct 2020 – Jul 2023"
@@ -147,4 +157,10 @@ export const certifications = [
   "SQL Server Foundations — ScholarHat",
   "Full-Stack Web Development — Udemy",
   "The Joy of Computing Using Python — NPTEL"
+];
+
+export const certificationDetails = [
+  { name: "SQL Server Foundations", issuer: "ScholarHat" },
+  { name: "Full-Stack Web Development", issuer: "Udemy" },
+  { name: "The Joy of Computing Using Python", issuer: "NPTEL" }
 ];

@@ -1,5 +1,7 @@
 import React from 'react';
-import { ChevronUp, Github, Linkedin, Twitter, Mail, Instagram, Facebook } from 'lucide-react';
+import { ChevronUp, Github, Linkedin, Twitter, Mail } from 'lucide-react';
+import { personalInfo } from '../data/portfolio';
+import Reveal from './Reveal';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -7,103 +9,78 @@ const Footer: React.FC = () => {
   const socialLinks = [
     { 
       icon: <Github size={20} />, 
-      href: 'https://github.com/ayushhCreator',
+      href: personalInfo.githubUrl,
       label: 'GitHub',
-      color: 'hover:bg-gray-700'
+      color: 'hover:bg-slate-700'
     },
     { 
       icon: <Linkedin size={20} />, 
-      href: 'https://linkedin.com/in/ayush-raj-633526186',
+      href: personalInfo.linkedin,
       label: 'LinkedIn',
-      color: 'hover:bg-blue-600'
+      color: 'hover:bg-blue-600/80'
     },
     { 
       icon: <Twitter size={20} />, 
-      href: 'https://twitter.com/ayushhcreator',
+      href: personalInfo.twitterUrl,
       label: 'Twitter',
-      color: 'hover:bg-blue-400'
+      color: 'hover:bg-sky-500/80'
     },
     { 
       icon: <Mail size={20} />, 
-      href: 'mailto:ayushraj1501003@gmail.com',
+      href: `mailto:${personalInfo.email}`,
       label: 'Email',
-      color: 'hover:bg-red-500'
-    },
-    { 
-      icon: <Instagram size={20} />, 
-      href: 'https://www.instagram.com/ayushh_74',
-      label: 'Instagram',
-      color: 'hover:bg-pink-500'
-    },
-    { 
-      icon: <Facebook size={20} />, 
-      href: 'https://www.facebook.com/ayushh74',
-      label: 'Facebook',
-      color: 'hover:bg-blue-700'
-    },
+      color: 'hover:bg-rose-500/80'
+    }
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white pt-16 pb-8 relative overflow-hidden">
-      {/* Background Animation Elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-10 w-40 h-40 bg-gradient-to-br from-indigo-400 to-cyan-400 rounded-full mix-blend-multiply filter blur-xl animate-float"></div>
-        <div className="absolute bottom-10 right-10 w-32 h-32 bg-gradient-to-br from-cyan-400 to-indigo-400 rounded-full mix-blend-multiply filter blur-xl animate-float animation-delay-600"></div>
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Back to Top Button */}
-        <div className="flex justify-center mb-12">
-          <a 
-            href="#home" 
-            className="group bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-700 hover:to-cyan-700 w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl animate-pulseGlow hover-lift"
+    <footer className="border-t border-white/10 bg-[#030617] py-14 text-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <Reveal>
+          <div className="flex justify-center">
+          <a
+            href="#home"
+            className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/5 text-slate-200"
           >
-            <ChevronUp size={24} className="group-hover:animate-bounce" />
+            <ChevronUp size={20} />
           </a>
-        </div>
-        
-        {/* Main Footer Content */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-gradientText bg-gradient-to-r from-indigo-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
-            Ayush Raj
-          </h2>
-          <p className="text-gray-300 max-w-md mx-auto text-lg leading-relaxed">
-            Full-Stack Software Engineer specialized in building exceptional digital experiences with modern technologies.
+          </div>
+        </Reveal>
+
+        <Reveal className="mt-10 text-center" delay={0.05}>
+          <h2 className="text-2xl md:text-3xl font-bold brand-gradient">{personalInfo.name}</h2>
+          <p className="mt-3 text-slate-400 max-w-xl mx-auto">
+            Backend-focused full-stack developer building scalable products and clean developer experiences.
           </p>
-        </div>
-        
-        {/* Social Media Links */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        </Reveal>
+
+        <Reveal className="mt-8 flex flex-wrap justify-center gap-3" delay={0.1}>
           {socialLinks.map((link, index) => (
-            <a 
+            <a
               key={index}
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`social-icon group bg-gray-800 ${link.color} w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover-lift border border-gray-700 hover:border-transparent`}
+              className={`inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-200 transition ${link.color}`}
               aria-label={link.label}
             >
-              <span className="group-hover:scale-110 transition-transform duration-300">
-                {link.icon}
-              </span>
+              {link.icon}
             </a>
           ))}
-        </div>
+        </Reveal>
 
-        {/* Quick Links */}
-        <div className="flex flex-wrap justify-center gap-8 mb-8 text-sm">
-          <a href="#about" className="text-gray-300 hover:text-indigo-400 transition-colors duration-300 hover:underline">About</a>
-          <a href="#experience" className="text-gray-300 hover:text-indigo-400 transition-colors duration-300 hover:underline">Experience</a>
-          <a href="#projects" className="text-gray-300 hover:text-indigo-400 transition-colors duration-300 hover:underline">Projects</a>
-          <a href="#skills" className="text-gray-300 hover:text-indigo-400 transition-colors duration-300 hover:underline">Skills</a>
-          <a href="#education" className="text-gray-300 hover:text-indigo-400 transition-colors duration-300 hover:underline">Education</a>
-          <a href="#contact" className="text-gray-300 hover:text-indigo-400 transition-colors duration-300 hover:underline">Contact</a>
-        </div>
-        
-        {/* Copyright */}
-        <div className="text-center text-gray-400 text-sm border-t border-gray-700 pt-8">
-          <p>&copy; {currentYear} Ayush Raj. All rights reserved. Built with ❤️ using React & Tailwind CSS</p>
-        </div>
+        <Reveal className="mt-9 flex flex-wrap justify-center gap-6 text-sm text-slate-400" delay={0.15}>
+          <a href="#about" className="hover:text-white">About</a>
+          <a href="#skills" className="hover:text-white">Skills</a>
+          <a href="#experience" className="hover:text-white">Experience</a>
+          <a href="#projects" className="hover:text-white">Projects</a>
+          <a href="#education" className="hover:text-white">Education</a>
+          <a href="#contact" className="hover:text-white">Contact</a>
+        </Reveal>
+
+        <Reveal className="mt-9 border-t border-white/10 pt-6 text-center text-sm text-slate-500" delay={0.2}>
+          <p>© {currentYear} {personalInfo.name}. Built with React + Tailwind.</p>
+        </Reveal>
       </div>
     </footer>
   );

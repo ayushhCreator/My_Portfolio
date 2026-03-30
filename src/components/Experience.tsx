@@ -1,87 +1,74 @@
 import React from 'react';
-import { Briefcase, Calendar, MapPin } from 'lucide-react';
+import { Briefcase, Calendar } from 'lucide-react';
+import { experience } from '../data/portfolio';
+import Reveal from './Reveal';
 
 const Experience: React.FC = () => {
-  const experiences = [
-    {
-      title: "Software Engineer Intern - Full-Stack Java Developer",
-      company: "Tripillar Solutions LLP",
-      location: "Bengaluru, India",
-      period: "October 2024 – December 2024",
-      responsibilities: [
-        "Engineered an HRMS web application for automated employee scheduling across 15 departments, reducing manual processing time by 8 hours weekly",
-        "Built a timetable management system with CRUD operations for schedules, subjects, and faculty assignments using Spring Boot and Spring Data JPA",
-        "Optimized database performance, reducing API response time by 62% through indexing and query improvements",
-        "Designed 12 secure RESTful APIs with 99.1% uptime, handling 50+ concurrent users",
-        "Implemented responsive frontend views using Thymeleaf, HTML, CSS, and Bootstrap following MVC architecture",
-        "Participated in Agile development processes and mentored junior developers on Git workflows"
-      ]
-    },
-    {
-      title: "Web Developer Intern",
-      company: "Dot Plus Technologies Pvt. Ltd",
-      location: "Bihar, India",
-      period: "April 2023 – September 2023",
-      responsibilities: [
-        "Built 5+ responsive web applications serving 800+ monthly users, including saadwul.com and rpslawcollege.com",
-        "Increased mobile user engagement by 34% through a mobile-first design approach",
-        "Implemented Git workflows and code review processes, reducing merge conflicts by 43%",
-        "Crafted optimized HTML email templates with cross-browser compatibility",
-        "Applied performance optimization techniques to improve website responsiveness"
-      ]
-    }
-  ];
+  const badgeStyles: Record<string, string> = {
+    green: 'bg-emerald-500/20 text-emerald-300 border-emerald-400/30',
+    blue: 'bg-blue-500/20 text-blue-300 border-blue-400/30',
+    yellow: 'bg-amber-500/20 text-amber-300 border-amber-400/30'
+  };
 
   return (
-    <section id="experience" className="py-20 bg-gradient-to-br from-gray-50 to-indigo-50 relative overflow-hidden">
-      {/* Background Animation Elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-br from-indigo-400 to-cyan-400 rounded-full mix-blend-multiply filter blur-xl animate-float"></div>
-        <div className="absolute bottom-20 right-20 w-48 h-48 bg-gradient-to-br from-cyan-400 to-indigo-400 rounded-full mix-blend-multiply filter blur-xl animate-float animation-delay-600"></div>
-      </div>
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16 animate-fadeIn">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-            Work <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-600">Experience</span>
+    <section id="experience" className="section-shell">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <Reveal>
+          <div className="text-center">
+          <h2 className="section-title">
+            Work <span className="brand-gradient">Experience</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-indigo-600 to-cyan-600 mx-auto mb-6"></div>
-        </div>
-        
-        <div className="max-w-5xl mx-auto">
-          {experiences.map((exp, index) => (
-            <div key={index} className="mb-8 relative animate-slideInLeft" style={{ animationDelay: `${index * 300}ms` }}>
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl p-6 md:p-8 ml-6 md:ml-10 relative hover-lift transition-all duration-500 border border-gray-100">
-                <div className="absolute -left-6 md:-left-10 top-6 md:top-8 w-8 h-8 md:w-10 md:h-10 bg-gradient-to-r from-indigo-600 to-cyan-600 rounded-full flex items-center justify-center shadow-lg animate-pulseGlow">
-                  <Briefcase size={16} className="text-white md:w-[18px] md:h-[18px]" />
-                </div>
-                
-                <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-2 group-hover:text-indigo-600 transition-colors duration-300 leading-tight">{exp.title}</h3>
-                <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center text-gray-600 mb-6 gap-2 sm:gap-4">
-                  <div className="flex items-center">
-                    <span className="font-semibold text-indigo-600">{exp.company}</span>
+          <p className="section-subtitle mx-auto">Internships and roles where I shipped production features.</p>
+          </div>
+        </Reveal>
+
+        <div className="relative mt-12 max-w-5xl mx-auto">
+          <div className="absolute left-4 top-0 h-full w-px bg-white/10 md:left-1/2 md:-translate-x-1/2" />
+
+          <div className="space-y-8">
+            {experience.map((item, index) => {
+              const isLeft = index % 2 === 0;
+              return (
+                <Reveal key={`${item.company}-${item.duration}`} delay={index * 0.08}>
+                  <article className="relative md:grid md:grid-cols-2 md:gap-8">
+                  <div className={`${isLeft ? 'md:pr-8' : 'md:order-2 md:pl-8'} pl-12 md:pl-0`}>
+                    <div className="glass-card p-6">
+                      <div className="flex flex-wrap items-center gap-3">
+                        <h3 className="text-lg md:text-xl font-semibold text-slate-100">{item.title ?? item.role}</h3>
+                        <span
+                          className={`rounded-full border px-3 py-1 text-xs font-semibold ${badgeStyles[item.badgeColor] ?? badgeStyles.blue}`}
+                        >
+                          {item.badge}
+                        </span>
+                      </div>
+
+                      <p className="mt-2 text-cyan-300 font-medium">{item.company}</p>
+                      <p className="mt-1 inline-flex items-center gap-2 text-sm text-slate-400">
+                        <Calendar size={14} />
+                        {item.duration ?? item.date}
+                      </p>
+
+                      <ul className="mt-5 space-y-2">
+                        {item.bullets.map((point) => (
+                          <li key={point} className="flex items-start gap-2 text-slate-300 text-sm leading-relaxed">
+                            <span className="mt-2 h-1.5 w-1.5 rounded-full bg-indigo-300" />
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                  <div className="flex items-center">
-                    <MapPin size={16} className="mr-1 flex-shrink-0" />
-                    <span className="text-sm">{exp.location}</span>
+
+                  <div className={`${isLeft ? 'md:order-2' : ''}`} />
+
+                  <div className="absolute left-4 top-8 flex h-8 w-8 -translate-x-1/2 items-center justify-center rounded-full border border-white/20 bg-[#0b1224] text-indigo-300 md:left-1/2">
+                    <Briefcase size={14} />
                   </div>
-                  <div className="flex items-center">
-                    <Calendar size={16} className="mr-1 flex-shrink-0" />
-                    <span className="text-sm">{exp.period}</span>
-                  </div>
-                </div>
-                
-                <ul className="list-none pl-0 space-y-3 text-gray-700">
-                  {exp.responsibilities.map((resp, respIndex) => (
-                    <li key={respIndex} className="flex items-start">
-                      <span className="w-2 h-2 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                      <span className="leading-relaxed text-justify">{resp}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
+                  </article>
+                </Reveal>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

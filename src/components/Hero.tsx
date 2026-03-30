@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Github, Linkedin, Twitter, Mail } from 'lucide-react';
+import { Github, Linkedin, Twitter, Mail, MapPin, ArrowRight } from 'lucide-react';
 import profileImage from '../assets/newpic.jpeg';
+import { personalInfo, roles, stats } from '../data/portfolio';
+import Reveal from './Reveal';
 
 const Hero: React.FC = () => {
   const [displayedText, setDisplayedText] = useState('');
-  const fullText = 'Ayush Raj';
+  const fullText = personalInfo.name;
   
   useEffect(() => {
     let index = 0;
@@ -18,150 +20,126 @@ const Hero: React.FC = () => {
     }, 150);
     
     return () => clearInterval(timer);
-  }, []);
+  }, [fullText]);
 
   const socialLinks = [
     { 
       icon: <Github size={20} />, 
-      href: 'https://github.com/ayushhCreator',
+      href: personalInfo.githubUrl,
       label: 'GitHub',
-      color: 'hover:bg-gray-800'
+      color: 'hover:bg-slate-700'
     },
     { 
       icon: <Linkedin size={20} />, 
-      href: 'https://linkedin.com/in/ayush-raj-633526186',
+      href: personalInfo.linkedin,
       label: 'LinkedIn',
-      color: 'hover:bg-blue-600'
+      color: 'hover:bg-blue-600/80'
     },
     { 
       icon: <Twitter size={20} />, 
-      href: 'https://twitter.com/ayushhcreator',
+      href: personalInfo.twitterUrl,
       label: 'Twitter',
-      color: 'hover:bg-blue-400'
+      color: 'hover:bg-sky-500/80'
     },
     { 
       icon: <Mail size={20} />, 
-      href: 'mailto:ayushraj1501003@gmail.com',
+      href: `mailto:${personalInfo.email}`,
       label: 'Email',
-      color: 'hover:bg-red-500'
+      color: 'hover:bg-rose-500/80'
     }
   ];
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-indigo-50 via-white to-cyan-50 overflow-hidden pt-16 md:pt-0">
-      {/* Background Animation Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-indigo-400 to-cyan-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-cyan-400 to-indigo-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float animation-delay-600"></div>
-        <div className="absolute top-40 left-40 w-60 h-60 bg-gradient-to-br from-amber-400 to-orange-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float animation-delay-300"></div>
+    <section id="home" className="relative min-h-screen pt-24 md:pt-28 pb-16 overflow-hidden">
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute -top-40 right-0 h-96 w-96 rounded-full bg-indigo-500/20 blur-3xl" />
+        <div className="absolute bottom-0 -left-24 h-96 w-96 rounded-full bg-cyan-500/20 blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
-          {/* Left Content */}
+        <Reveal>
+          <div className="grid items-center gap-12 lg:grid-cols-2">
           <div className="flex-1 text-center lg:text-left order-2 lg:order-1">
-            <div className="animate-slideInLeft">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-800 mb-4 leading-tight">
-                <span className="inline-block">Hello, I'm</span>
-                <br />
-                <span className="p-2 inline-block bg-gradient-to-r from-indigo-600 via-cyan-600 to-indigo-600 bg-clip-text text-transparent relative">
-                  {displayedText}
-                  <span className="border-r-2 border-indigo-600 animate-pulse ml-1"></span>
+            <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-200">
+              <MapPin size={16} /> {personalInfo.location}
+            </p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-100 leading-tight">
+              <span className="inline-block">Hi, I’m</span>
+              <br />
+              <span className="brand-gradient inline-flex items-center">
+                {displayedText}
+                <span className="ml-1 animate-pulse text-indigo-300">|</span>
+              </span>
+            </h1>
+
+            <div className="mt-6 flex flex-wrap justify-center lg:justify-start gap-3">
+              {roles.map((role) => (
+                <span key={role} className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300">
+                  {role}
                 </span>
-              </h1>
+              ))}
             </div>
-            
-            <div className="animate-slideInLeft animation-delay-300">
-              <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-700 mb-6 font-medium">
-                Full-Stack Software Engineer
-              </h2>
-            </div>
-            
-            <div className="animate-slideInLeft animation-delay-600">
-              <p className="text-gray-600 mb-8 max-w-lg mx-auto lg:mx-0 text-base lg:text-lg leading-relaxed text-justify">
-                Building scalable web applications with <span className="text-indigo-600 font-semibold">MERN stack</span> and <span className="text-cyan-600 font-semibold">Spring Boot</span>. 
-                Experienced in creating real-time collaborative platforms and optimizing system performance.
-              </p>
-            </div>
-            
-            <div className="animate-slideInLeft animation-delay-900 flex flex-col sm:flex-row gap-4 mb-8 justify-center lg:justify-start">
-              <a
-                href="#contact"
-                className="group px-6 lg:px-8 py-3 lg:py-4 bg-gradient-to-r from-indigo-600 to-cyan-600 text-white font-medium rounded-full hover:from-indigo-700 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 animate-pulseGlow text-center"
-              >
-                <span className="relative z-10">Contact Me</span>
-              </a>
+
+            <p className="mt-6 max-w-2xl text-slate-300 leading-relaxed">
+              {personalInfo.tagline}
+            </p>
+
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a
                 href="#projects"
-                className="px-6 lg:px-8 py-3 lg:py-4 bg-white text-indigo-600 font-medium rounded-full hover:bg-gray-50 transition-all duration-300 border-2 border-indigo-600 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-center"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-500 px-6 py-3 font-semibold text-white shadow-lg shadow-indigo-900/30"
               >
-                View My Work
+                Explore Projects
+                <ArrowRight size={18} />
+              </a>
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 font-semibold text-slate-200 hover:bg-white/10"
+              >
+                Let’s Talk
               </a>
             </div>
 
-            {/* Social Links for Desktop */}
-            <div className="hidden lg:flex space-x-4 animate-slideInLeft animation-delay-1200">
+            <div className="mt-8 flex justify-center lg:justify-start gap-3">
               {socialLinks.map((link, index) => (
                 <a
                   key={index}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`social-icon bg-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 ${link.color} hover:text-white group`}
+                  className={`inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-200 transition ${link.color}`}
                   aria-label={link.label}
                 >
-                  <div className="relative z-10">
-                    {link.icon}
-                  </div>
+                  {link.icon}
                 </a>
+              ))}
+            </div>
+
+            <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3">
+              {stats.map((item) => (
+                <div key={item.label} className="glass-card px-4 py-3 text-center">
+                  <p className="text-lg font-bold text-slate-100">{item.value}</p>
+                  <p className="text-xs text-slate-400 mt-1">{item.label}</p>
+                </div>
               ))}
             </div>
           </div>
 
-          {/* Right Content - Profile Image */}
-          <div className="flex-1 flex justify-center lg:justify-end animate-slideInRight animation-delay-600 order-1 lg:order-2">
+          <div className="flex justify-center lg:justify-end">
             <div className="relative">
-              {/* Animated Background Circle */}
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-400 to-cyan-400 rounded-full animate-pulseGlow"></div>
-              
-              {/* Profile Image */}
-              <div className="relative z-10 w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 sm:border-6 lg:border-8 border-white shadow-2xl animate-float">
-                <img 
-                  src={profileImage} 
-                  alt="Ayush Raj - Full-Stack Software Engineer" 
-                  className="w-full h-full object-cover object-center"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = profileImage;
-                  }}
+              <div className="absolute -inset-3 rounded-full bg-gradient-to-tr from-indigo-500 to-cyan-500 opacity-30 blur-2xl" />
+              <div className="relative z-10 h-72 w-72 sm:h-80 sm:w-80 lg:h-[25rem] lg:w-[25rem] overflow-hidden rounded-full border-4 border-white/20 shadow-2xl shadow-indigo-900/50">
+                <img
+                  src={profileImage}
+                  alt={`${personalInfo.name} profile`}
+                  className="h-full w-full object-cover"
                 />
               </div>
-              
-              {/* Decorative Elements */}
-              <div className="absolute -top-2 -right-2 lg:-top-4 lg:-right-4 w-12 h-12 lg:w-20 lg:h-20 bg-gradient-to-br from-amber-400 to-orange-400 rounded-full animate-bounce animation-delay-300"></div>
-              <div className="absolute -bottom-2 -left-2 lg:-bottom-4 lg:-left-4 w-10 h-10 lg:w-16 lg:h-16 bg-gradient-to-br from-emerald-400 to-teal-400 rounded-full animate-bounce animation-delay-600"></div>
             </div>
           </div>
-        </div>
-
-        {/* Social Links for Mobile */}
-        {/* <div className="flex lg:hidden justify-center space-x-4 pb-2 mt-8 animate-fadeIn animation-delay-1200 order-3">
-          {socialLinks.map((link, index) => (
-            <a
-              key={index}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`social-icon bg-white p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ${link.color} hover:text-white`}
-              aria-label={link.label}
-            >
-              {link.icon}
-            </a>
-          ))}
-        </div> */}
+          </div>
+        </Reveal>
       </div>
-
-    
     </section>
   );
 };

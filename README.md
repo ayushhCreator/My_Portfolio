@@ -70,3 +70,4 @@ GitHub: https://github.com/your-username/portfolio-repo
 - Tailwind CSS
 - Vite
 - Lucide Icons
+- 
